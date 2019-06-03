@@ -1,0 +1,36 @@
+<main>
+  <div class="mat-elevation-z4">
+    <div class="title">
+      <h2>{{group.name}}</h2>
+      <button mat-button class="members" (click)="openMembersModal()">Members</button>
+    </div>
+    <div class="body">
+      <div class="chat-container">
+        <mat-card class="main-card">
+          <mat-list class="chat-list">
+            <p *ngFor="let message of group.messages" class="single_message">
+              <span>{{message.username}}: {{message.text}}</span><span>{{message.timestamp | date:'hh:mm | dd-MM-yyyy'}}</span>
+            </p>
+          </mat-list>
+          <div class="chat_response">
+            <mat-form-field>
+              <input matInput type="text" placeholder="Send message" [(ngModel)]="text">
+              <button mat-button *ngIf="text" matSuffix mat-icon-button aria-label="Clear" (click)="text=''">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+            <div class="image_upload">
+              <label class="image_upload_label" for="file-input">
+                <button mat-icon-button>
+                  <mat-icon>attach_file</mat-icon>
+                </button>
+              </label>
+              <input id="file-input" type="file"/>
+            </div>
+            <button mat-icon-button (click)="onSendMessage()"><mat-icon>send</mat-icon></button>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</main>

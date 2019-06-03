@@ -1,0 +1,10 @@
+<div mat-dialog-content>
+  <p>Members:</p>
+  <p *ngFor="let member of data.group.users">
+    {{member.name}}
+  </p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="back()">Back</button>
+  <button mat-button cdkFocusInitial>Ok</button>
+</div>

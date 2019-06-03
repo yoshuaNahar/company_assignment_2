@@ -1,0 +1,12 @@
+<div mat-dialog-content>
+  <p>Group name:</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+  Note: to save time, all currently existing users are added to a new group,
+  instead of selecting users here.
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="back()">Back</button>
+  <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial>OK</button>
+</div>

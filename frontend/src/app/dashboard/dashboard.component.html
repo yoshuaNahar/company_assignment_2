@@ -1,0 +1,36 @@
+<!--<app-loader></app-loader>-->
+
+<main>
+  <header class="mat-elevation-z6">
+    <mat-toolbar color="primary">
+      <a routerLink="/"><span>Chat app</span></a>
+      <span fxHide.lt-sm class="fill-remaining-space"></span>
+      <span fxHide.lt-sm id="logged_in_as_text">Logged in as: {{user?.username}}</span>
+      <button fxHide.lt-sm mat-button (click)="logout()">Logout</button>
+    </mat-toolbar>
+  </header>
+
+  <div class="main_body">
+    <div class="mat_sidenav">
+      <div class="sidenav">
+        <mat-list>
+          <div *ngFor="let group of user?.groups">
+            <mat-list-item>
+              <a routerLinkActive="active_link" (click)="selectedGroup = group">{{group.name}}</a>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </div>
+          <mat-list-item>
+            <a routerLinkActive="active_link" (click)="addGroupModal()">
+              <mat-icon>add_box</mat-icon>
+            </a>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+
+    <div class="router_outlet_margin_top">
+      <app-chat-window [group]="selectedGroup" *ngIf="selectedGroup"></app-chat-window>
+    </div>
+  </div>
+</main>

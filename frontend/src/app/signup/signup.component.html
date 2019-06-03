@@ -1,0 +1,32 @@
+<main>
+  <mat-card class="mat-elevation-z8">
+    <form [formGroup]="signupForm"
+          (ngSubmit)="signup()">
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput
+                 placeholder="Username"
+                 formControlName="username"/>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput
+                 placeholder="Password"
+                 type="password"
+                 formControlName="password"/>
+        </mat-form-field>
+      </mat-card-content>
+
+      <div id="action">
+        <button mat-raised-button
+                color="primary"
+                type="submit">Signup
+        </button>
+        <button mat-raised-button
+                color="primary"
+                type="button"
+                (click)="goToSignup()">Login?
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</main>
